@@ -1,12 +1,14 @@
-import random
+import os
+
 from obs_adapter import OBSAdapter
 from voicevox_adapter import VoicevoxAdapter
 from openai_adapter import OpenAIAdapter
 from youtube_comment_adapter import YoutubeCommentAdapter
 from play_sound import PlaySound
 from dotenv import load_dotenv
+
 load_dotenv()
-import os
+
 
 class AITuberSystem:
     def __init__(self) -> None:
@@ -21,12 +23,12 @@ class AITuberSystem:
     def talk_with_comment(self) -> bool:
         print("コメントを読み込みます…")
         comment = self.youtube_comment_adapter.get_comment()
-        if comment==None:
+        if comment is None:
             print("コメントがありませんでした。")
             return False
         response_text = self.openai_adapter.create_chat(comment)
-        data,rate = self.voice_adapter.get_voice(response_text)
+        data, rate = self.voice_adapter.get_voice(response_text)
         self.obs_adapter.set_question(comment)
         self.obs_adapter.set_answer(response_text)
-        self.play_sound.play_sound(data,rate)
+        self.play_sound.play_sound(data, rate)
         return True
