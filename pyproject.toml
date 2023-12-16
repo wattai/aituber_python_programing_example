@@ -51,5 +51,9 @@ dev = [
     "ruff~=0.1.8",
 ]
 
-[tool.setuptools.package-dir]
-aituber = "src"
+# [tool.setuptools.package-dir]
+# aituber = "src"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+namespaces = false
