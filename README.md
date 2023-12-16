@@ -26,3 +26,37 @@ $ pip install .
 ```shell
 $ pip install -e ".[dev,test]"
 ```
+
+## voicevox エンジンのインストール
+
+```shell
+# download engine
+wget https://github.com/VOICEVOX/voicevox_engine/releases/download/0.14.6/voicevox_engine-linux-cpu-0.14.6.7z.001
+
+# install dependecy
+sudo apt install p7zip
+
+# decompression
+mv voicevox_engine-linux-cpu-0.14.6.7z.001 voicevox_engine-linux-cpu-0.14.6.7z
+p7zip -d voicevox_engine-linux-cpu-0.14.6.7z
+```
+
+```shell
+# move into linux-cpu directory
+cd linux-cpu
+```
+
+```shell
+# change the access permission
+chmod 755 run
+```
+
+```shell
+# open the help for the engine
+./run --help
+```
+
+```shell
+# run the engine
+./run --help
+```
