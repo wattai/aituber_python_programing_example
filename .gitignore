@@ -251,3 +251,4 @@ $RECYCLE.BIN/
 
 data/*
 !data/.gitkeep
+!data/prompts/
